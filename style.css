@@ -1,0 +1,427 @@
+/* ===== RESET & VARIABEL WARNA (TEMA COKELAT EMAS) ===== */
+:root {
+    --bg: #3a1f11;           
+    --bg-2: #2a150a;         
+    --card: #4a2a19;         
+    --card-2: #5a3521;       
+    --border: #6e4228;       
+    
+    --text: #fdf0e3;         
+    --muted: #d1b39e;        
+    
+    --accent: #d98b2b;       
+    --accent-glow: rgba(217, 139, 43, 0.35);
+    --price-bg: linear-gradient(180deg, #cc1111 0%, #880000 100%); 
+    --price-border: #ff4b4b;
+    --price-shadow: 0 4px 0 #550000, 0 8px 15px rgba(0,0,0,0.5);
+  
+    --radius: 16px;
+    --radius-sm: 10px;
+    --maxw: 1180px;
+  }
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M30 0l30 30-30 30L0 30z" fill="%23000000" fill-opacity="0.03"/></svg>');
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  ul { list-style: none; }
+  button { font-family: inherit; cursor: pointer; }
+  
+  .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  
+  .section { padding: 90px 0; position: relative; }
+  
+  /* ===== TOMBOL ===== */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 8px; padding: 12px 22px; border-radius: 999px;
+    font-weight: 600; font-size: 0.95rem; border: 1px solid transparent;
+    transition: all 0.25s ease; white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #2a150a;
+    box-shadow: 0 8px 24px var(--accent-glow);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px var(--accent-glow); background: #e69d3d; }
+  .btn-outline { border-color: var(--accent); color: var(--accent); background: transparent; }
+  .btn-outline:hover { background: var(--accent); color: #2a150a; }
+  .btn-ghost { color: var(--muted); background: transparent; }
+  .btn-ghost:hover { color: var(--text); }
+  .btn-block { width: 100%; }
+  
+  /* ===== NAVBAR ===== */
+  .navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(42, 21, 10, 0.85); backdrop-filter: blur(14px);
+    border-bottom: 1px solid transparent; transition: all 0.3s ease;
+  }
+  .navbar.scrolled { border-bottom-color: var(--border); background: rgba(42, 21, 10, 0.95); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.1rem; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { color: var(--muted); font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 6px; }
+  .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+  
+  /* ===== PENGATURAN LOGO ===== */
+  .logo-img, .hero-logo, .footer-logo {
+    object-fit: contain;
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.8)); 
+  }
+  
+  .logo-img { height: 45px; width: auto; }
+  .footer-logo { height: 50px; width: auto; }
+  
+  /* ===== HERO ===== */
+  .hero { padding: 140px 0 80px; position: relative; overflow: hidden; }
+  .hero::before {
+    content: ''; position: absolute; top: -200px; right: -150px;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(217, 139, 43, 0.15), transparent 70%);
+    filter: blur(60px); opacity: 0.8;
+  }
+  .hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; position: relative; }
+  .badge {
+    display: inline-block; padding: 6px 14px; border-radius: 999px;
+    background: var(--card); border: 1px solid var(--border);
+    font-size: 0.82rem; color: var(--accent); font-weight: 600; margin-bottom: 20px;
+  }
+  .hero h1 { font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; text-transform: uppercase; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p { color: var(--muted); margin: 20px 0 28px; max-width: 540px; font-size: 1.02rem; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-stats { display: flex; gap: 36px; margin-top: 44px; flex-wrap: wrap; }
+  .hero-stats strong { display: block; font-size: 1.6rem; font-weight: 800; color: var(--accent); }
+  .hero-stats span { font-size: 0.85rem; color: var(--muted); }
+  
+  /* Hero visual */
+  .hero-visual { display: flex; justify-content: center; }
+  .hero-card {
+    position: relative; width: 100%; max-width: 420px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 20px; padding: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+  }
+  .live-dot { width: 10px; height: 10px; border-radius: 50%; background: #ff3b30; position: absolute; top: 20px; left: 20px; animation: pulse 1.4s infinite; }
+  .live-label { position: absolute; top: 14px; left: 38px; font-size: 0.75rem; font-weight: 700; color: #ff3b30; letter-spacing: 1px; }
+  .screen {
+    aspect-ratio: 16/9; border-radius: 12px; margin: 26px 0 16px;
+    background: linear-gradient(135deg, #1a0f08, #3a1f11);
+    position: relative; overflow: hidden;
+  }
+  .screen::after {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(217, 139, 43, 0.05) 3px, rgba(217, 139, 43, 0.05) 4px);
+  }
+  .cam-row { display: flex; gap: 8px; }
+  .cam {
+    flex: 1; text-align: center; padding: 8px; border-radius: 8px;
+    background: var(--card-2); border: 1px solid var(--border);
+    font-size: 0.72rem; font-weight: 600; color: var(--muted);
+  }
+  .cam.active { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 0 1px var(--accent-glow); }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.4;transform:scale(0.85);} }
+  
+  /* ===== SECTION HEAD ===== */
+  .section-head { text-align: center; max-width: 680px; margin: 0 auto 50px; }
+  .section-head.left { text-align: left; margin-left: 0; }
+  .section-head h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 800; letter-spacing: -0.02em; text-transform: uppercase; }
+  .section-head p { color: var(--muted); margin-top: 12px; }
+  .accent { color: var(--accent); }
+  
+  /* ===== ABOUT ===== */
+  .about { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .about-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; }
+  .about-text h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 800; margin-bottom: 20px; text-transform: uppercase; }
+  .about-text p { color: var(--muted); margin-bottom: 16px; }
+  .about-list { margin-top: 22px; display: grid; gap: 10px; }
+  .about-list li { color: var(--text); font-weight: 500; font-size: 0.95rem; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .stat-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 22px; text-align: center;
+  }
+  .stat-card strong { display: block; font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+  .stat-card span { font-size: 0.82rem; color: var(--muted); }
+  
+  /* ===== DESAIN CUSTOM PAKET LIVE STREAMING (TANPA GAMBAR) ===== */
+  .paket-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin-top: 40px;
+  }
+  
+  .paket-card {
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Kartu Putih Detail (Langsung Tanpa Kotak Gambar) */
+  .paket-detail {
+    width: 100%;
+    background-color: #f7f7f7;
+    background-image: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 0c11 0 20 9 20 20s-9 20-20 20S0 31 0 20 9 0 20 0zm0 4c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16S28.8 4 20 4z" fill="%23e0e0e0" fill-opacity="0.4"/></svg>');
+    border-radius: 20px;
+    padding: 50px 40px 35px 40px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  /* Pita Merah Judul */
+  .pita-judul {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, #bd1111 0%, #7a0000 100%);
+    color: white;
+    padding: 8px 40px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    white-space: nowrap;
+    z-index: 2;
+  }
+  
+  .pita-judul.double .judul-sub { line-height: 1.1; text-align: left; }
+  .pita-judul .judul-utama { font-size: 1.8rem; font-weight: 800; letter-spacing: 1px; }
+  .pita-judul .judul-sub { font-size: 1.2rem; font-weight: 600; }
+  
+  /* Varian Warna Abu-Abu (Hemat) */
+  .pita-judul.abu { background: linear-gradient(180deg, #555555 0%, #222222 100%); }
+  
+  /* List Fitur */
+  .fitur-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 8px;
+    text-align: left;
+    margin: 20px auto 30px auto;
+    max-width: 500px;
+  }
+  
+  .fitur-list li {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #333;
+    position: relative;
+    padding-left: 18px;
+    line-height: 1.3;
+  }
+  
+  .fitur-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #333;
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+  
+  /* Tombol Harga Merah */
+  .harga-wrap { display: flex; justify-content: center; }
+  
+  .btn-harga {
+    background: linear-gradient(180deg, #cc0000 0%, #800000 100%);
+    border: 2px solid #ff4b4b;
+    border-radius: 12px;
+    padding: 10px 30px;
+    color: white;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    box-shadow: 0 6px 0 #550000, 0 10px 20px rgba(0,0,0,0.4);
+    transition: transform 0.1s;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  
+  .btn-harga:active { transform: translateY(4px); box-shadow: 0 2px 0 #550000; }
+  .btn-harga .angka { font-size: 2rem; font-weight: 800; text-shadow: 1px 1px 2px #000; }
+  .btn-harga .slash { font-size: 1.5rem; font-weight: 400; color: #ffcccc; }
+  .btn-harga .durasi { font-size: 1rem; font-weight: 600; }
+  
+  /* Tombol Harga Abu-Abu (Hemat) */
+  .btn-harga.hemat { background: linear-gradient(180deg, #555555 0%, #222222 100%); border-color: #777777; box-shadow: 0 6px 0 #111111, 0 10px 20px rgba(0,0,0,0.4); }
+  .btn-harga.hemat:active { box-shadow: 0 2px 0 #111111; }
+  .btn-harga.hemat .slash { color: #aaaaaa; }
+  
+  .catatan-harga { text-align: center; margin-top: 40px; font-size: 1.1rem; color: var(--text); font-weight: 500; line-height: 1.6; }
+  
+  /* ===== DESAIN SEWA ALAT MULTIMEDIA (TANPA GAMBAR) ===== */
+  .sewa-alat { padding-top: 90px; }
+  .kategori-judul {
+    font-size: 1.5rem; font-weight: 800; color: var(--accent);
+    margin-bottom: 20px; text-transform: uppercase;
+    border-bottom: 2px solid var(--border); padding-bottom: 10px;
+  }
+  .alat-list { display: flex; flex-direction: column; gap: 24px; }
+  
+  /* List Alat Horizontal (Teks Kiri, Tombol Kanan) */
+  .alat-item {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 24px 30px;
+    transition: transform 0.3s ease, border-color 0.3s;
+    gap: 20px;
+  }
+  .alat-item:hover { transform: translateY(-3px); border-color: var(--accent); }
+  
+  .alat-info { flex: 1; }
+  .alat-info h4 { font-size: 1.3rem; font-weight: 800; text-transform: uppercase; color: var(--text); margin-bottom: 8px; letter-spacing: 0.5px; }
+  .alat-info p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 0; max-width: 800px; }
+  
+  /* Tombol Harga Merah (Sewa) */
+  .alat-harga { flex-shrink: 0; }
+  .btn-harga-merah {
+    background: linear-gradient(180deg, #cc0000 0%, #800000 100%);
+    border: 2px solid #ff4b4b; border-radius: 8px;
+    padding: 8px 30px; color: white;
+    display: inline-flex; align-items: baseline; gap: 8px;
+    box-shadow: 0 4px 0 #550000, 0 8px 15px rgba(0,0,0,0.4);
+    transition: transform 0.1s, box-shadow 0.1s;
+    cursor: pointer; font-family: inherit;
+  }
+  .btn-harga-merah:active { transform: translateY(4px); box-shadow: 0 0px 0 #550000, 0 4px 10px rgba(0,0,0,0.4); }
+  .btn-harga-merah .angka { font-size: 1.5rem; font-weight: 800; text-shadow: 1px 1px 2px #000; }
+  .btn-harga-merah .slash { font-size: 1.2rem; font-weight: 400; color: #ffcccc; }
+  .btn-harga-merah .durasi { font-size: 0.9rem; font-weight: 600; }
+  
+  /* ===== FLOW ===== */
+  .flow { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .flow-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .flow-step { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; position: relative; }
+  .flow-step span { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: #2a150a; font-weight: 800; font-size: 0.9rem; margin-bottom: 14px; }
+  .flow-step h4 { font-size: 0.95rem; margin-bottom: 6px; }
+  .flow-step p { font-size: 0.82rem; color: var(--muted); }
+  
+  /* ===== BOOKING ===== */
+  .booking-inner { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: start; }
+  .booking-form { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field.full { grid-column: 1 / -1; }
+  .field label { font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+  .field input, .field select, .field textarea {
+    background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 11px 14px; color: var(--text); font-size: 0.92rem; font-family: inherit;
+    transition: border-color 0.2s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
+  .field textarea { resize: vertical; }
+  .booking-form button { grid-column: 1 / -1; margin-top: 6px; }
+  
+  .booking-summary { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; position: sticky; top: 90px; }
+  .booking-summary h3 { font-size: 1.15rem; margin-bottom: 20px; text-transform: uppercase; }
+  .summary-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 0.9rem; }
+  .summary-row span { color: var(--muted); }
+  .summary-row.total { font-size: 1.05rem; padding-top: 14px; }
+  .summary-row.total strong { color: var(--accent); font-size: 1.3rem; }
+  .booking-summary hr { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+  .summary-note { font-size: 0.78rem; color: var(--muted); margin-top: 14px; }
+  
+  /* ===== MODAL ===== */
+  .modal { position: fixed; inset: 0; z-index: 200; display: none; align-items: center; justify-content: center; padding: 24px; background: rgba(0,0,0,0.8); backdrop-filter: blur(6px); }
+  .modal.open { display: flex; }
+  .modal-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; max-width: 520px; width: 100%; }
+  .modal-box h3 { color: var(--accent); margin-bottom: 12px; }
+  .modal-box p { color: var(--muted); font-size: 0.9rem; margin-bottom: 16px; }
+  .modal-box pre { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; font-size: 0.82rem; white-space: pre-wrap; color: var(--text); margin-bottom: 20px; max-height: 240px; overflow-y: auto; }
+  .modal-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  
+  /* ===== CONTACT ===== */
+  .contact { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .contact-text h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 14px; text-transform: uppercase; }
+  .contact-text > p { color: var(--muted); margin-bottom: 8px; }
+  .muted { color: var(--muted); font-size: 0.88rem; }
+  .contact-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 28px; max-width: 640px; }
+  .contact-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+  .contact-card h4 { color: var(--accent); font-size: 0.85rem; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .contact-card p { font-size: 0.92rem; }
+  .contact-card a:hover { color: var(--accent); }
+  .contact-card small { color: var(--muted); }
+  
+  /* ===== FAQ ===== */
+  .faq-list { max-width: 760px; margin: 0 auto; display: grid; gap: 12px; }
+  .faq-list details { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 22px; transition: border-color 0.2s; }
+  .faq-list details[open] { border-color: var(--accent); }
+  .faq-list summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary::after { content: '+'; color: var(--accent); font-size: 1.3rem; font-weight: 400; transition: transform 0.2s; }
+  .faq-list details[open] summary::after { transform: rotate(45deg); }
+  .faq-list p { color: var(--muted); font-size: 0.9rem; margin-top: 12px; }
+  
+  /* ===== FOOTER ===== */
+  .footer { padding: 50px 0 30px; background: var(--bg-2); border-top: 1px solid var(--border); }
+  .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+  .footer-brand { display: flex; align-items: center; gap: 14px; text-align: left; }
+  .footer-brand strong { display: block; font-size: 1rem; }
+  .footer-brand p { font-size: 0.85rem; color: var(--muted); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 0.88rem; color: var(--muted); }
+  .footer-links a:hover { color: var(--accent); }
+  .copyright { font-size: 0.8rem; color: var(--muted); }
+  
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 960px) {
+    .hero-inner, .about-inner, .booking-inner { grid-template-columns: 1fr; }
+    .hero-visual { order: -1; }
+    .hero-card { max-width: 360px; }
+    .flow-grid { grid-template-columns: repeat(2, 1fr); }
+    .booking-summary { position: static; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .nav-links.open { display: flex; position: absolute; top: 70px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--bg-2); border-bottom: 1px solid var(--border); padding: 12px 24px 20px; }
+    .nav-links.open a { padding: 12px 0; border-bottom: 1px solid var(--border); }
+  }
+  
+  @media (max-width: 768px) {
+    .alat-item { flex-direction: column; text-align: center; padding: 20px; gap: 15px; }
+    .alat-info p { margin-bottom: 10px; }
+    .alat-harga { width: 100%; display: flex; justify-content: center; }
+  }
+  
+  @media (max-width: 600px) {
+    .section { padding: 64px 0; }
+    .hero { padding: 120px 0 60px; }
+    .booking-form { grid-template-columns: 1fr; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    .flow-grid { grid-template-columns: 1fr; }
+    .contact-cards { grid-template-columns: 1fr; }
+    .hero-stats { gap: 24px; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+    
+    /* Responsif Paket */
+    .fitur-list { grid-template-columns: 1fr; }
+    .pita-judul { padding: 6px 20px; }
+    .pita-judul .judul-utama { font-size: 1.4rem; }
+    .pita-judul .judul-sub { font-size: 1rem; }
+    .btn-harga .angka { font-size: 1.5rem; }
+    .btn-harga .durasi { font-size: 0.85rem; }
+    .paket-detail { padding: 40px 20px 25px 20px; }
+    .btn-harga-merah .angka { font-size: 1.4rem; }
+  }
